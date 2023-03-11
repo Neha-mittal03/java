@@ -16,8 +16,33 @@ public class MajorityElement {
             System.out.println(entry.getKey() + "," + entry.getValue());
         }
     }
+    static void approach2(int arr[]){
+
+        int count=0;
+        int major=0;
+        for(int i=0;i<arr.length;i++){
+            if(count==0){
+                major=arr[i];
+            }
+            if(major==arr[i]){
+                count++;
+            }
+            else{
+                count--;
+            }
+        }
+        count=0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==major){
+                count++;
+            }
+        }
+        System.out.println("Majority element is:"+major);
+        System.out.println("count of that element is:"+count);
+    }
     public static void main(String[] args) {
         int arr[] = {2,2,2,1,1,1,2,2};
         approach_1(arr);
+        approach2(arr);
     }
 }
